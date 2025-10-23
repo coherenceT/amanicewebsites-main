@@ -8,12 +8,12 @@
     <style>
         /* Base Styles & Variables */
         :root {
-            --primary: #FF69B4; /* Pink */
-            --secondary: #FFDAB9; /* Peach */
-            --accent: #FF69B4; /* Pink accent */
-            --light: #FFFFFF; /* White background */
+            --cream: #FFF8F0; /* Cream background */
+            --white: #FFFFFF; /* White */
+            --silver: #C0C0C0; /* Silver */
+            --dark-silver: #A0A0A0; /* Darker silver for accents */
             --dark: #333333; /* Dark text */
-            --white: #FFFFFF;
+            --accent: #8B4513; /* Rich brown accent to match logo */
             --shadow: 0 4px 12px rgba(0,0,0,0.1);
             --radius: 12px;
         }
@@ -26,20 +26,21 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light);
+            background-color: var(--cream);
             color: var(--dark);
             line-height: 1.6;
         }
 
         /* Header & Navigation */
         header {
-            background-color: var(--primary);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--white) 0%, var(--silver) 100%);
+            color: var(--dark);
             padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
             box-shadow: var(--shadow);
+            border-bottom: 1px solid var(--silver);
         }
 
         .header-container {
@@ -56,29 +57,24 @@
             gap: 10px;
         }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--white);
+        .logo-img {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--primary);
+            object-fit: cover;
+            border: 2px solid var(--accent);
         }
 
         .logo-text {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--white);
+            color: var(--accent);
         }
 
         .nav-toggle {
             background: none;
             border: none;
-            color: var(--white);
+            color: var(--dark);
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -88,12 +84,13 @@
             top: 70px;
             left: 0;
             width: 100%;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--white) 0%, var(--silver) 100%);
             padding: 1rem;
             display: none;
             flex-direction: column;
             gap: 1rem;
             box-shadow: var(--shadow);
+            border-top: 1px solid var(--silver);
         }
 
         .nav-menu.active {
@@ -101,7 +98,7 @@
         }
 
         .nav-menu a {
-            color: var(--white);
+            color: var(--dark);
             text-decoration: none;
             padding: 0.5rem;
             border-radius: var(--radius);
@@ -109,14 +106,14 @@
         }
 
         .nav-menu a:hover {
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(192, 192, 192, 0.3);
         }
 
         /* Hero Section */
         .hero {
             padding: 2rem 1rem;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), #ff8ac8);
+            background: linear-gradient(135deg, var(--accent), #a05a2c);
             color: var(--white);
             margin-bottom: 1rem;
         }
@@ -132,9 +129,9 @@
             margin: 0 auto 1.5rem;
         }
 
-        .whatsapp-btn {
+        .whatsapp-btn, .accent-btn {
             display: inline-block;
-            background-color: #25D366;
+            background-color: var(--accent);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 50px;
@@ -142,27 +139,32 @@
             font-weight: bold;
             margin-top: 1rem;
             box-shadow: var(--shadow);
-            transition: transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .whatsapp-btn:hover {
+        .whatsapp-btn:hover, .accent-btn:hover {
             transform: translateY(-3px);
+            background-color: #a05a2c;
         }
 
         /* Sections */
         .section {
             padding: 2rem 1rem;
-            background-color: var(--light);
+            background-color: var(--cream);
         }
 
         .section-alt {
-            background-color: var(--secondary);
+            background-color: rgba(192, 192, 192, 0.1);
+            border-top: 1px solid var(--silver);
+            border-bottom: 1px solid var(--silver);
         }
 
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
-            color: var(--primary);
+            color: var(--accent);
             font-size: 1.8rem;
         }
 
@@ -180,7 +182,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: transform 0.3s;
-            border: 1px solid #f0f0f0;
+            border: 1px solid var(--silver);
         }
 
         .product-card:hover {
@@ -189,12 +191,12 @@
 
         .product-image {
             height: 120px;
-            background-color: var(--secondary);
+            background-color: var(--silver);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .product-info {
@@ -204,7 +206,7 @@
         .product-name {
             font-weight: bold;
             margin-bottom: 0.5rem;
-            color: var(--primary);
+            color: var(--accent);
             font-size: 0.9rem;
         }
 
@@ -228,7 +230,7 @@
             padding: 1.5rem 1rem;
             box-shadow: var(--shadow);
             transition: transform 0.3s;
-            border-top: 4px solid var(--primary);
+            border-top: 4px solid var(--accent);
         }
 
         .category-card:hover {
@@ -238,13 +240,13 @@
         .category-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .category-title {
             font-weight: bold;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: var(--accent);
             font-size: 1.3rem;
         }
 
@@ -265,84 +267,93 @@
 
         /* Kids Packs */
         .kids-packs {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 1rem;
+            display: flex;
+            justify-content: center;
             margin-top: 1rem;
         }
 
         .pack-card {
             background-color: var(--white);
             border-radius: var(--radius);
-            padding: 1rem;
+            padding: 1.5rem;
             text-align: center;
             box-shadow: var(--shadow);
-            border: 1px solid #f0f0f0;
+            border: 1px solid var(--silver);
+            max-width: 200px;
+            width: 100%;
         }
 
         .pack-size {
             font-weight: bold;
-            color: var(--primary);
+            color: var(--accent);
             margin-bottom: 0.5rem;
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         .pack-price {
             font-weight: bold;
             color: var(--dark);
-            font-size: 1.1rem;
-        }
-
-        /* Shipping Section */
-        .shipping-options {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .shipping-option {
-            padding: 1rem;
-            border-radius: var(--radius);
-            border: 2px solid #eee;
-            transition: all 0.3s;
-            background-color: var(--white);
-        }
-
-        .shipping-option:hover {
-            border-color: var(--primary);
-        }
-
-        .shipping-option.recommended {
-            border-color: var(--primary);
-            background-color: rgba(255, 105, 180, 0.05);
-        }
-
-        .shipping-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
-        .shipping-name {
-            font-weight: bold;
-            color: var(--primary);
+        .all-ages-inclusive {
+            color: #FF0000;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        /* Shipping Section */
+        .shipping-table {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .shipping-table th, .shipping-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--silver);
+        }
+
+        .shipping-table th {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .shipping-table tr:nth-child(even) {
+            background-color: rgba(192, 192, 192, 0.1);
+        }
+
+        .shipping-table tr:last-child td {
+            border-bottom: none;
         }
 
         .shipping-price {
             font-weight: bold;
-            color: var(--primary);
+            color: var(--accent);
         }
 
-        .shipping-details {
+        .shipping-note {
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #25A525;
             font-size: 0.9rem;
-            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0.5rem;
+            background-color: rgba(37, 165, 37, 0.1);
+            border-radius: var(--radius);
         }
 
         /* Contact Section */
         .contact-section {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--accent), #a05a2c);
             color: var(--white);
             padding: 2rem 1rem;
             text-align: center;
@@ -364,11 +375,21 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            transition: background-color 0.3s;
+            transition: transform 0.3s;
         }
 
         .social-icon:hover {
-            background-color: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+
+        .facebook {
+            color: #1877F2;
+            background-color: white;
+        }
+
+        .tiktok {
+            color: #000000;
+            background-color: white;
         }
 
         /* Footer */
@@ -378,6 +399,11 @@
             text-align: center;
             padding: 1.5rem;
             font-size: 0.9rem;
+        }
+
+        .address {
+            margin: 0.5rem 0;
+            line-height: 1.4;
         }
 
         /* Responsive Design */
@@ -394,6 +420,16 @@
                 padding: 0;
                 background: none;
                 box-shadow: none;
+                border-top: none;
+            }
+            
+            .logo-img {
+                width: 95px;
+                height: 95px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
             }
             
             .products-grid {
@@ -406,20 +442,19 @@
                 margin: 0 auto 2rem;
             }
             
-            .kids-packs {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            }
-            
-            .shipping-options {
-                flex-direction: row;
-            }
-            
-            .shipping-option {
-                flex: 1;
-            }
-            
             .section {
                 padding: 3rem 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .logo-img {
+                width: 95px;
+                height: 95px;
+            }
+            
+            .logo-text {
+                font-size: 2rem;
             }
         }
     </style>
@@ -429,7 +464,7 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="logo.png" alt="AMA-NICE Logo" class="logo-img" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--white);">
+                <img src="logo.png" alt="AMA-NICE Logo" class="logo-img">
                 <div class="logo-text">AMA-NICE</div>
             </div>
             <button class="nav-toggle" id="navToggle">
@@ -456,7 +491,7 @@
 
     <!-- Featured Products -->
     <section class="section" id="products">
-        <h2 class="section-title">Featured Packs</h2>
+        <h2 class="section-title">Summer Specials Sale</h2>
         <div class="products-grid">
             <div class="product-card">
                 <div class="product-image">👕</div>
@@ -539,24 +574,9 @@
                 <p style="margin-bottom: 1rem; text-align: center; color: var(--dark);">Kids Clothing Packs</p>
                 <div class="kids-packs">
                     <div class="pack-card">
-                        <div class="pack-size">1-2 Years</div>
-                        <div class="pack-price">R150</div>
-                    </div>
-                    <div class="pack-card">
-                        <div class="pack-size">1-3 Years</div>
-                        <div class="pack-price">R170</div>
-                    </div>
-                    <div class="pack-card">
-                        <div class="pack-size">1-4 Years</div>
-                        <div class="pack-price">R210</div>
-                    </div>
-                    <div class="pack-card">
-                        <div class="pack-size">3-7 Years</div>
-                        <div class="pack-price">R240</div>
-                    </div>
-                    <div class="pack-card">
-                        <div class="pack-size">7-13 Years</div>
-                        <div class="pack-price">R290</div>
+                        <div class="pack-size">0 to 14 Years</div>
+                        <div class="pack-price">R120</div>
+                        <div class="all-ages-inclusive">all ages inclusive</div>
                     </div>
                 </div>
             </div>
@@ -566,40 +586,39 @@
     <!-- Shipping Information -->
     <section class="section" id="shipping">
         <h2 class="section-title">Shipping & Delivery</h2>
-        <div class="shipping-options">
-            <div class="shipping-option">
-                <div class="shipping-header">
-                    <span class="shipping-name">Standard Courier</span>
-                    <span class="shipping-price">R60</span>
-                </div>
-                <div class="shipping-details">
-                    <p>7-9 Days Delivery</p>
-                    <p>Ideal for non-urgent orders</p>
-                </div>
-            </div>
-            <div class="shipping-option recommended">
-                <div class="shipping-header">
-                    <span class="shipping-name">Paxi / Paxi @ Pick n Pay</span>
-                    <span class="shipping-price">R110</span>
-                </div>
-                <div class="shipping-details">
-                    <p>3-5 Days Delivery</p>
-                    <p>Our recommended option</p>
-                </div>
-            </div>
-            <div class="shipping-option">
-                <div class="shipping-header">
-                    <span class="shipping-name">Express Courier</span>
-                    <span class="shipping-price">R140</span>
-                </div>
-                <div class="shipping-details">
-                    <p>3-7 Days Delivery</p>
-                    <p>Faster delivery option</p>
-                </div>
-            </div>
-        </div>
-        <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: #666;">
-            <strong>Note:</strong> Delivery times are estimates. Different sizes may affect shipping.
+        <table class="shipping-table">
+            <thead>
+                <tr>
+                    <th>Shipping Option</th>
+                    <th>Price</th>
+                    <th>Delivery Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Standard size shipping</td>
+                    <td class="shipping-price">R60</td>
+                    <td>7 to 9 days</td>
+                </tr>
+                <tr>
+                    <td>Standard size shipping</td>
+                    <td class="shipping-price">R110</td>
+                    <td>3 to 5 days</td>
+                </tr>
+                <tr>
+                    <td>Large size shipping</td>
+                    <td class="shipping-price">R110</td>
+                    <td>7 to 9 days</td>
+                </tr>
+                <tr>
+                    <td>Large size shipping</td>
+                    <td class="shipping-price">R140</td>
+                    <td>3 to 5 days</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="shipping-note">
+            All orders are handled by Pep Paxi by default unless customer can provide alternative shipping method
         </p>
     </section>
 
@@ -607,22 +626,16 @@
     <section class="contact-section" id="contact">
         <h2>Get In Touch</h2>
         <p>Have questions? Contact us via WhatsApp for quick responses!</p>
-        <a href="https://wa.me/27731635803?text=Hi%20AMA-NICE!%20I%20have%20a%20question." class="whatsapp-btn" target="_blank" style="background-color: var(--white); color: var(--primary);">
+        <a href="https://wa.me/27731635803?text=Hi%20AMA-NICE!%20I%20have%20a%20question." class="whatsapp-btn" target="_blank" style="background-color: var(--white); color: var(--accent);">
             <i class="fab fa-whatsapp"></i> WhatsApp: 073 163 5803
         </a>
         
         <div class="social-icons">
-            <a href="#" class="social-icon">
+            <a href="https://www.facebook.com/share/17F9kkQE6v/" class="social-icon facebook" target="_blank">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="social-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-icon">
+            <a href="https://vm.tiktok.com/ZSHvaLC7daRSk-kt3dG/" class="social-icon tiktok" target="_blank">
                 <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
             </a>
         </div>
     </section>
@@ -630,6 +643,10 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2023 AMA-NICE Clothing. All rights reserved.</p>
+        <div class="address">
+            <p>385 Murphy Street (Main building)</p>
+            <p>Shop 14 timber street (2nd branch)</p>
+        </div>
         <p>Premium South African Fashion</p>
     </footer>
 
